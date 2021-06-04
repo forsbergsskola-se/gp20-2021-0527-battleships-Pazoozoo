@@ -1,14 +1,21 @@
 #include <iostream>
 
 int iterativeFibonacci(int);
+int recursiveFibonacci(int);
 
 int main() {
-    iterativeFibonacci(20);
+    int input = 20;
+    int result = 0;
+    std::cout << "Input: " << input << std::endl;
+    result = iterativeFibonacci(input);
+    std::cout << "Iterative: " << result << std::endl;
+    result = recursiveFibonacci(input);
+    std::cout << "Recursive: " << result << std::endl;
     return 0;
 }
 
 int iterativeFibonacci(int n){
-    int a = 0, b = 1, i = 2, c;
+    int a = 0, b = 1, c = 0;
 
     switch (n){
         case 0:
@@ -16,13 +23,16 @@ int iterativeFibonacci(int n){
         case 1:
             return 1;
     }
-
-    for (i; i <= n; i++){
+    for (int i = 2; i <= n; i++){
         c = a + b;
         a = b;
         b = c;
-        std::cout << c << ' ';
     }
+    return c;
+}
 
-    return b;
+int recursiveFibonacci(int n){
+    if (n < 2)
+        return n;
+    return recursiveFibonacci(n - 2) + recursiveFibonacci(n - 1);
 }
