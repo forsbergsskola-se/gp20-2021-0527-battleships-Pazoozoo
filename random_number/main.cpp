@@ -2,7 +2,8 @@
 using namespace std;
 
 int main() {
-    int iterations = 14000;
+    int iterations = 0;
+    cin >> iterations;
     float distribution[20]{};
     srand(time(0));
 
