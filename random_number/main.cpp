@@ -24,10 +24,12 @@ int main() {
     int minNumber = 0;
     float maxOffset = 0.0f;
     float minOffset = 100.0f;
+    float offsets[20]{};
 
     for (float amount : distribution){
         float percent = (amount / iterations) * 100.0f;
         float offset = abs(percent - idealPercent);
+        offsets[number - 1] = offset;
 
         if (offset > maxOffset) {
             maxOffset = offset;
@@ -40,8 +42,15 @@ int main() {
         number++;
     }
 
+    float combinedOffsets = 0.0f;
+    for (float offset : offsets){
+        combinedOffsets += offset;
+    }
+    float averageOffset = combinedOffsets * 0.05f;
+
     cout << "Maximum offset: Number " << maxNumber << " (" << maxOffset << "%)" << endl;
     cout << "Minimum offset: Number " << minNumber << " (" << minOffset << "%)" << endl;
+    cout << "Average offset: " << averageOffset << "%" << endl;
 
     return 0;
 }
