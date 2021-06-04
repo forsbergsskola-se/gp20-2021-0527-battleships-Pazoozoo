@@ -19,5 +19,26 @@ int main() {
     float idealPercent = (idealResult / iterations) * 100.0f;
     cout << "Ideal distribution per number: " << idealResult << " times (" << idealPercent << "%)\n" << endl;
 
+    int number = 1;
+    int maxNumber = 0;
+    int minNumber = 0;
+    float maxOffset = 0.0f;
+    float minOffset = 100.0f;
+
+    for (float amount : distribution){
+        float percent = (amount / iterations) * 100.0f;
+        float offset = abs(percent - idealPercent);
+
+        if (offset > maxOffset) {
+            maxOffset = offset;
+            maxNumber = number;
+        }
+        if (offset < minOffset) {
+            minOffset = offset;
+            minNumber = number;
+        }
+        number++;
+    }
+
     return 0;
 }
