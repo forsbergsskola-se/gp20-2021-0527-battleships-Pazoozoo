@@ -2,8 +2,8 @@
 using namespace std;
 
 int main() {
-    int iterations = 15000;
-    float distribution[20]{0};
+    int iterations = 14000;
+    float distribution[20]{};
     srand(time(0));
 
     for (int i = 0; i < iterations; i++){
@@ -11,13 +11,13 @@ int main() {
     }
 
     for (int i = 0; i < 20; i++) {
-        float percentage = (distribution[i] / iterations) * 100;
-        cout << "Number " << i + 1 << ": " << distribution[i] << " times (" << percentage << "%)" << endl;
+        float percent = (distribution[i] / iterations) * 100.0f;
+        cout << "Number " << i + 1 << ": " << distribution[i] << " times (" << percent << "%)" << endl;
     }
 
-    float averageResult = iterations / 20;
-    float averagePercent = (averageResult / iterations) * 100;
-    cout << "Ideal distribution per number: " << averageResult << " times (" << averagePercent << "%)" << endl;
+    float idealResult = iterations * 0.05f;
+    float idealPercent = (idealResult / iterations) * 100.0f;
+    cout << "Ideal distribution per number: " << idealResult << " times (" << idealPercent << "%)\n" << endl;
 
     return 0;
 }
