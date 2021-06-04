@@ -17,7 +17,7 @@ int main() {
 
     float idealResult = iterations * 0.05f;
     float idealPercent = (idealResult / iterations) * 100.0f;
-    cout << "Ideal distribution per number: " << idealResult << " times (" << idealPercent << "%)\n" << endl;
+    cout << "\nIdeal distribution per number: " << idealResult << " times (" << idealPercent << "%)" << endl;
 
     int number = 1;
     int maxNumber = 0;
@@ -39,6 +39,9 @@ int main() {
         }
         number++;
     }
+
+    cout << "Maximum offset: Number " << maxNumber << " (" << maxOffset << "%)" << endl;
+    cout << "Minimum offset: Number " << minNumber << " (" << minOffset << "%)" << endl;
 
     return 0;
 }
