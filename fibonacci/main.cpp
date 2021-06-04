@@ -23,6 +23,7 @@ int iterativeFibonacci(int n){
         case 1:
             return 1;
     }
+
     for (int i = 2; i <= n; i++){
         c = a + b;
         a = b;
@@ -34,5 +35,5 @@ int iterativeFibonacci(int n){
 int recursiveFibonacci(int n){
     if (n < 2)
         return n;
-    return recursiveFibonacci(n - 2) + recursiveFibonacci(n - 1);
+    return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);
 }
